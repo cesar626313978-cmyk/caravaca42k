@@ -1,0 +1,13 @@
+body {
+  background: url(C:\Users\torre\Desktop\caravaca\portada.jpg) no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.app {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 12px;
+}
