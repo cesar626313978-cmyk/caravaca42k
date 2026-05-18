@@ -140,4 +140,172 @@
             <tr data-cena="true"><td>Nica</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
             <tr data-cena="true"><td>Cholo</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
             <tr data-cena="true"><td>César</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Juan</td><td
+            <tr data-cena="true"><td>Juan</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
+            <tr data-cena="true"><td>Juanjo</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
+            <tr data-cena="true"><td>Javi</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
+            <tr data-cena="true"><td>Carlos</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
+            <tr data-cena="false"><td>Ramón</td><td><button class="check-btn" onclick="toggleCena(this)">❌</button></td></tr>
+            <tr data-cena="false"><td>Piti</td><td><button class="check-btn" onclick="toggleCena(this)">❌</button></td></tr>
+          </tbody>
+        </table>
+        <p class="note">Pulsa ✔️ / ❌ para confirmar asistencia a la cena.</p>
+      </section>
+    </div>
+
+    <div class="footer">
+      Versión 42K · Panel interno de grupo.
+    </div>
+  </div>
+
+  <!-- SCRIPT COMPLETO -->
+  <script>
+    // Tabs
+    (function () {
+      const buttons = document.querySelectorAll(".tab-button");
+      const contents = document.querySelectorAll(".tab-content");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-tab");
+          buttons.forEach((b) => b.classList.remove("active"));
+          contents.forEach((c) => c.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById(target).classList.add("active");
+        });
+      });
+    })();
+
+    // Carrera: toggle confirmados
+    function toggleConfirmado(btn) {
+      const fila = btn.closest("tr");
+      const confirmado = fila.getAttribute("data-confirmado") === "true";
+      fila.setAttribute("data-confirmado", confirmado ? "false" : "true");
+      btn.textContent = confirmado ? "❌" : "✔️";
+      actualizarContadorCarrera();
+      actualizarCosteAlojamiento();
+      actualizarResumenGeneral();
+    }
+
+    function actualizarContadorCarrera() {
+      const filas = document.querySelectorAll('#tablaParticipantes tbody tr');
+      const total = filas.length;
+      let confirmados = 0;
+      filas.forEach(fila => {
+        if (fila.getAttribute('data-confirmado') === 'true') confirmados++;
+      });
+      document.getElementById('contadorConfirmados').textContent = `${confirmados}/${total}`;
+    }
+
+    function actualizarCosteAlojamiento() {
+      const costeTotal = 217.77;
+      const filas = document.querySelectorAll('#tablaParticipantes tbody tr');
+      let confirmados = 0;
+      filas.forEach(fila => {
+        if (fila.getAttribute('data-confirmado') === 'true') confirmados++;
+      });
+      const precio = confirmados > 0 ? (costeTotal / confirmados).toFixed(2) : 0;
+      document.getElementById('numConfirmados').textContent = confirmados;
+      document.getElementById('precioPorPersona').textContent = precio + " €";
+    }
+
+    // Cena
+    function toggleCena(btn) {
+      const fila = btn.closest("tr");
+      const asiste = fila.getAttribute("data-cena") === "true";
+      fila.setAttribute("data-cena", asiste ? "false" : "true");
+      btn.textContent = asiste ? "❌" : "✔️";
+      actualizarContadorCena();
+      actualizarResumenGeneral();
+    }
+
+    function actualizarContadorCena() {
+      const filas = document.querySelectorAll('#tablaCena tbody tr');
+      const total = filas.length;
+      let asistentes = 0;
+      filas.forEach(fila => {
+        if (fila.getAttribute('data-cena') === 'true') asistentes++;
+      });
+      document.getElementById('contadorCena').textContent = `${asistentes}/${total}`;
+    }
+
+    // Resumen general
+    function actualizarResumenGeneral() {
+      // Carrera
+      const filasCarrera = document.querySelectorAll('#tablaParticipantes tbody tr');
+      const totalCarrera = filasCarrera.length;
+      let confirmadosCarrera = 0;
+      filasCarrera.forEach(fila => {
+        if (fila.getAttribute('data-confirmado') === 'true') confirmadosCarrera++;
+      });
+      document.getElementById('resumenCarrera').textContent = `${confirmadosCarrera}/${totalCarrera}`;
+
+      // Cena
+      const filasCena = document.querySelectorAll('#tablaCena tbody tr');
+      const totalCena = filasCena.length;
+      let confirmadosCena = 0;
+      filasCena.forEach(fila => {
+        if (fila.getAttribute('data-cena') === 'true') confirmadosCena++;
+      });
+      document.getElementById('resumenCena').textContent = `${confirmadosCena}/${totalCena}`;
+
+      // Alojamiento
+      const precio = document.getElementById('precioPorPersona').textContent;
+      document.getElementById('resumenAlojamiento').textContent = precio;
+    }
+
+    // Cuenta atrás
+    function iniciarCuentaAtras() {
+      const objetivo = new Date("2026-10-03T10:00:00").getTime();
+      function actualizar() {
+        const ahora = Date.now();
+        const distancia = objetivo - ahora;
+        if (distancia <= 0) {
+          document.getElementById("countdown").textContent = "¡Es el día de la carrera!";
+          return;
+        }
+        const d = Math.floor(distancia / (1000*60*60*24));
+        const h = Math.floor((distancia % (1000*60*60*24)) / (1000*60*60));
+        const m = Math.floor((distancia % (1000*60*60)) / (1000*60));
+        const s = Math.floor((distancia % (1000*60)) / 1000);
+        document.getElementById("countdown").textContent = `${d}d ${h}h ${m}m ${s}s`;
+      }
+      actualizar();
+      setInterval(actualizar, 1000);
+    }
+
+    // Clima
+    async function obtenerClima(lat, lon) {
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+      const resp = await fetch(url);
+      const datos = await resp.json();
+      return datos.current_weather;
+    }
+
+    function traducirEstado(codigo) {
+      const estados = {
+        0:"Despejado",1:"Mayormente despejado",2:"Parcialmente nublado",3:"Nublado",
+        45:"Niebla",48:"Niebla con escarcha",51:"Llovizna ligera",53:"Llovizna",
+        55:"Llovizna intensa",61:"Lluvia ligera",63:"Lluvia moderada",65:"Lluvia fuerte",
+        71:"Nieve ligera",73:"Nieve",75:"Nieve intensa",95:"Tormenta",
+        96:"Tormenta con granizo",99:"Tormenta fuerte con granizo"
+      };
+      return estados[codigo] || "Condición desconocida";
+    }
+
+    async function actualizarClima() {
+      const mula = { lat:38.0402, lon:-1.4900 };
+      const caravaca = { lat:38.1056, lon:-1.8635 };
+      try {
+        const climaMula = await obtenerClima(mula.lat, mula.lon);
+        const climaCaravaca = await obtenerClima(caravaca.lat, caravaca.lon);
+        document.getElementById("climaMula").textContent =
+          `${climaMula.temperature}°C · ${traducirEstado(climaMula.weathercode)} · Viento ${climaMula.windspeed} km/h`;
+        document.getElementById("climaCaravaca").textContent =
+          `${climaCaravaca.temperature}°C · ${traducirEstado(climaCaravaca.weathercode)} · Viento ${climaCaravaca.windspeed} km/h`;
+      } catch (e) {
+        document.getElementById("climaMula").textContent = "No se pudo cargar el clima.";
+        document.getElementById("climaCaravaca").textContent = "No se pudo cargar el clima.";
+      }
+    }
+
+    // Init
+    window.addEventListener('
