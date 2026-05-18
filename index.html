@@ -150,14 +150,16 @@
         </table>
         <p class="note">Pulsa ✔️ / ❌ para confirmar asistencia a la cena.</p>
       </section>
+
     </div>
 
     <div class="footer">
       Versión 42K · Panel interno de grupo.
     </div>
+
   </div>
 
-  <!-- SCRIPT COMPLETO -->
+  <!-- SCRIPT COMPLETO Y FUNCIONAL -->
   <script>
     // Tabs
     (function () {
@@ -229,7 +231,6 @@
 
     // Resumen general
     function actualizarResumenGeneral() {
-      // Carrera
       const filasCarrera = document.querySelectorAll('#tablaParticipantes tbody tr');
       const totalCarrera = filasCarrera.length;
       let confirmadosCarrera = 0;
@@ -238,7 +239,6 @@
       });
       document.getElementById('resumenCarrera').textContent = `${confirmadosCarrera}/${totalCarrera}`;
 
-      // Cena
       const filasCena = document.querySelectorAll('#tablaCena tbody tr');
       const totalCena = filasCena.length;
       let confirmadosCena = 0;
@@ -247,7 +247,6 @@
       });
       document.getElementById('resumenCena').textContent = `${confirmadosCena}/${totalCena}`;
 
-      // Alojamiento
       const precio = document.getElementById('precioPorPersona').textContent;
       document.getElementById('resumenAlojamiento').textContent = precio;
     }
@@ -308,4 +307,15 @@
     }
 
     // Init
-    window.addEventListener('
+    window.addEventListener('DOMContentLoaded', () => {
+      actualizarContadorCarrera();
+      actualizarCosteAlojamiento();
+      actualizarContadorCena();
+      actualizarResumenGeneral();
+      iniciarCuentaAtras();
+      actualizarClima();
+    });
+  </script>
+
+</body>
+</html>
