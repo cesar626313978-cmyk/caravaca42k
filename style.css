@@ -1,13 +1,233 @@
-body {
-  background: url(C:\Users\torre\Desktop\caravaca\portada.jpg) no-repeat center center fixed;
-  background-size: cover;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+:root {
+  --primary:#0b5ed7;
+  --primary-dark:#084298;
+  --muted:#6b7280;
+  --border:#e5e7eb;
 }
 
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+body {
+  background:#e5e7eb;
+  padding:12px;
+}
+
+/* NUEVA CABECERA CON IMAGEN */
+.hero-header {
+  width: 100%;
+  height: 220px;
+  background: url("./images/portada.jpg") center/cover no-repeat;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.hero-logo {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 90px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.hero-text h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.hero-text p {
+  font-size: .85rem;
+  opacity: .9;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* APP */
 .app {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(4px);
-  border-radius: 16px;
-  padding: 12px;
+  max-width:480px;
+  margin:0 auto;
+  background:#fff;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.15);
+}
+
+/* HEADER ANTIGUO (ya no se usa, pero lo dejo por si lo necesitas en otra parte)
+header {
+  padding:14px;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+*/
+
+.badge-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:8px;
+  font-size:.7rem;
+}
+
+.badge {
+  padding:3px 8px;
+  border-radius:999px;
+  background:rgba(15,23,42,.25);
+  border:1px solid rgba(148,163,184,.4);
+}
+
+.tabs {
+  margin-top:10px;
+  border-radius:12px;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+}
+
+.tab-list {
+  display:flex;
+  overflow-x:auto;
+  border-bottom:1px solid var(--border);
+  background:#f9fafb;
+  scrollbar-width:none;
+}
+
+.tab-list::-webkit-scrollbar {
+  display:none;
+}
+
+.tab-button {
+  flex:1 0 auto;
+  padding:8px 10px;
+  font-size:.8rem;
+  text-align:center;
+  border:none;
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  border-bottom:2px solid transparent;
+  white-space:nowrap;
+}
+
+.tab-button.active {
+  color:var(--primary-dark);
+  border-bottom-color:var(--primary);
+  background:#fff;
+  font-weight:600;
+}
+
+.tab-content {
+  padding:12px;
+  display:none;
+  font-size:.85rem;
+}
+
+.tab-content.active {
+  display:block;
+}
+
+.pill {
+  display:inline-flex;
+  align-items:center;
+  padding:3px 8px;
+  border-radius:999px;
+  background:#eff6ff;
+  color:#1d4ed8;
+  font-size:.7rem;
+  margin-bottom:8px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:1.1fr 1.3fr;
+  gap:8px;
+  margin-bottom:6px;
+}
+
+.item-label {
+  font-size:.75rem;
+  color:var(--muted);
+}
+
+.item-value {
+  font-size:.85rem;
+}
+
+.section-title {
+  font-size:.9rem;
+  font-weight:600;
+  margin:10px 0 4px;
+}
+
+.card {
+  background:#fff;
+  border-radius:10px;
+  padding:10px 12px;
+  margin-top:6px;
+  border:1px solid #e5e7eb;
+}
+
+.note {
+  font-size:.75rem;
+  color:var(--muted);
+  margin-top:4px;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:.8rem;
+  margin-top:6px;
+}
+
+th,td {
+  padding:8px;
+  border-bottom:1px solid #e5e7eb;
+}
+
+th {
+  background:#f3f4f6;
+  text-align:left;
+}
+
+td:last-child {
+  text-align:center;
+}
+
+.check-btn {
+  font-size:1rem;
+  padding:3px 8px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  background:#f9fafb;
+}
+
+.check-btn:hover {
+  transform:scale(1.05);
+}
+
+#countdown {
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--primary);
+  letter-spacing:1px;
+}
+
+.footer {
+  margin-top:10px;
+  font-size:.7rem;
+  color:var(--muted);
+  text-align:center;
 }
