@@ -18,8 +18,61 @@
       </div>
     </header>
 
-    <!-- resto del contenido igual -->
-    <!-- ... (todo tu contenido de tabs, secciones y script) ... -->
+   <body>
+  <div class="app">
+
+    <!-- CABECERA -->
+    <header class="hero-header">
+      <div class="hero-text">
+        <h1>42K Camino de la Cruz 2026</h1>
+        <p>Panel rápido para el grupo (42K Mula → Caravaca).</p>
+      </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="tabs">
+      <div class="tab-list">
+        <button class="tab-button active" data-tab="general">General</button>
+        <button class="tab-button" data-tab="participantes">Participantes</button>
+        <button class="tab-button" data-tab="alojamiento">Alojamiento</button>
+        <button class="tab-button" data-tab="cena">Cena</button>
+      </div>
+
+      <!-- Secciones -->
+      <section id="general" class="tab-content active">
+        <div class="pill">Resumen rápido</div>
+        <div class="grid">
+          <div>
+            <div class="item-label">Fecha</div>
+            <div class="item-value">Sábado 3 de octubre de 2026</div>
+          </div>
+          <div>
+            <div class="item-label">Hora salida</div>
+            <div class="item-value">10:00 en Mula</div>
+          </div>
+          <div>
+            <div class="item-label">Salida</div>
+            <div class="item-value">Mula</div>
+          </div>
+          <div>
+            <div class="item-label">Meta</div>
+            <div class="item-value">Caravaca de la Cruz</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Más secciones (participantes, alojamiento, cena) -->
+      <!-- ... -->
+    </div>
+
+    <div class="footer">
+      Versión 42K · Panel interno de grupo.
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
 
   </div>
 </body>
