@@ -101,6 +101,9 @@ header {
   border-bottom:1px solid var(--border);
   background:#f9fafb;
   scrollbar-width:none;
+  gap:0; /* AÑADE ESTO */
+}
+
 }
 
 .tab-list::-webkit-scrollbar {
