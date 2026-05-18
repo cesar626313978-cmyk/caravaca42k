@@ -8,188 +8,19 @@
 </head>
 
 <body>
-
-  <!-- NUEVA CABECERA -->
-  <header class="hero-header">
-    <img src="./images/logo.jpeg" alt="Logo" class="hero-logo">
-    <div class="hero-text">
-      <h1>42K Camino de la Cruz 2026</h1>
-      <p>Panel rápido para el grupo (42K Mula → Caravaca).</p>
-    </div>
-  </header>
-
   <div class="app">
 
-    <div class="tabs">
-      <div class="tab-list">
-        <button class="tab-button active" data-tab="general">General</button>
-        <button class="tab-button" data-tab="participantes">Participantes</button>
-        <button class="tab-button" data-tab="alojamiento">Alojamiento</button>
-        <button class="tab-button" data-tab="cena">Cena</button>
+    <!-- ✅ CABECERA SOLO DENTRO DEL DIV APP -->
+    <header class="hero-header">
+      <div class="hero-text">
+        <h1>42K Camino de la Cruz 2026</h1>
+        <p>Panel rápido para el grupo (42K Mula → Caravaca).</p>
       </div>
+    </header>
 
-      <!-- GENERAL -->
-      <section id="general" class="tab-content active">
-        <div class="pill">Resumen rápido</div>
-        <div class="grid">
-          <div>
-            <div class="item-label">Fecha</div>
-            <div class="item-value">Sábado 3 de octubre de 2026</div>
-          </div>
-          <div>
-            <div class="item-label">Hora salida</div>
-            <div class="item-value">10:00 en Mula</div>
-          </div>
-          <div>
-            <div class="item-label">Salida</div>
-            <div class="item-value">Mula</div>
-          </div>
-          <div>
-            <div class="item-label">Meta</div>
-            <div class="item-value">Caravaca de la Cruz</div>
-          </div>
-        </div>
+    <!-- resto del contenido igual -->
+    <!-- ... (todo tu contenido de tabs, secciones y script) ... -->
 
-        <div class="section-title">Cuenta atrás para la 42K</div>
-        <div class="card" style="text-align:center;">
-          <div id="countdown">Cargando…</div>
-          <p class="note">Tiempo restante hasta la salida oficial en Mula.</p>
-        </div>
-
-        <div class="section-title">Clima previsto</div>
-        <div class="card">
-          <div style="font-weight:600;margin-bottom:4px;">Mula (Salida)</div>
-          <div id="climaMula" style="font-size:.9rem;margin-bottom:10px;">Cargando clima…</div>
-          <div style="font-weight:600;margin-bottom:4px;">Caravaca (Meta)</div>
-          <div id="climaCaravaca" style="font-size:.9rem;">Cargando clima…</div>
-          <p class="note">Datos en tiempo real desde Open‑Meteo.</p>
-        </div>
-
-        <div class="section-title">Resumen general del grupo</div>
-        <div class="card">
-          <p><strong>Participantes confirmados (carrera):</strong>
-            <span id="resumenCarrera">0/0</span>
-          </p>
-          <p style="margin-top:4px;"><strong>Asistentes confirmados (cena):</strong>
-            <span id="resumenCena">0/0</span>
-          </p>
-          <p style="margin-top:4px;"><strong>Precio alojamiento por persona:</strong>
-            <span id="resumenAlojamiento">0 €</span>
-          </p>
-        </div>
-
-        <div class="section-title">Enlaces rápidos</div>
-        <div class="card">
-          <ul style="margin-left:16px;font-size:.85rem;line-height:1.5;">
-            <li><a href="https://maps.app.goo.gl/EBsdgv1oKFiQAQrL6" target="_blank">🚩 Salida en Mula – Google Maps</a></li>
-            <li><a href="https://maps.app.goo.gl/2uEAKFmyUG8bkZjm9" target="_blank">🅿️ Aparcamiento en Caravaca – Google Maps</a></li>
-            <li><a href="https://maps.app.goo.gl/5wu4NV4bxFWF56bB9" target="_blank">🏠 Casa – Google Maps</a></li>
-            <li><a href="https://maps.app.goo.gl/w2aBjMPPGkkGv1Re8" target="_blank">🍽️ Restaurante – Google Maps</a></li>
-          </ul>
-        </div>
-
-        <div class="card" style="text-align:center;margin-top:8px;">
-          <a href="https://www.google.com/maps/dir/?api=1&origin=38.0402,-1.4900&destination=38.1056,-1.8635&waypoints=38.1054,-1.8629|38.1070,-1.8610|38.1050,-1.8630"
-             target="_blank"
-             style="display:inline-block;padding:8px 14px;background:#0b5ed7;color:#fff;border-radius:8px;text-decoration:none;font-weight:600;">
-            🗺️ Abrir todo en Google Maps
-          </a>
-          <p class="note">Incluye salida, parking, casa y restaurante.</p>
-        </div>
-      </section>
-
-      <!-- PARTICIPANTES -->
-      <section id="participantes" class="tab-content">
-        <div class="pill">Listado de participantes</div>
-        <div class="card" style="text-align:center;">
-          <strong>Confirmados: </strong><span id="contadorConfirmados">0/0</span>
-        </div>
-        <table id="tablaParticipantes">
-          <thead>
-            <tr><th>Nombre</th><th>Dorsal</th><th>Check-in</th></tr>
-          </thead>
-          <tbody>
-            <tr data-confirmado="true"><td>Nica</td><td>—</td><td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td></tr>
-            <tr data-confirmado="true"><td>Cholo</td><td>—</td><td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td></tr>
-            <tr data-confirmado="true"><td>César</td><td>—</td><td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td></tr>
-            <tr data-confirmado="true"><td>Juan</td><td>—</td><td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td></tr>
-            <tr data-confirmado="true"><td>Juanjo</td><td>—</td><td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td></tr>
-            <tr data-confirmado="true"><td>Javi</td><td>—</td><td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td></tr>
-            <tr data-confirmado="true"><td>Carlos</td><td>—</td><td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td></tr>
-            <tr data-confirmado="false"><td>Ramón</td><td>—</td><td><button class="check-btn" onclick="toggleConfirmado(this)">❌</button></td></tr>
-            <tr data-confirmado="false"><td>Piti</td><td>—</td><td><button class="check-btn" onclick="toggleConfirmado(this)">❌</button></td></tr>
-          </tbody>
-        </table>
-        <p class="note">Pulsa ✔️ / ❌ para marcar asistencia a la carrera.</p>
-      </section>
-
-      <!-- ALOJAMIENTO -->
-      <section id="alojamiento" class="tab-content">
-        <div class="pill">Alojamiento</div>
-        <div class="section-title">Casa después de la carrera</div>
-        <div class="card">
-          <p><strong>Ubicación:</strong> Casa en Caravaca (ver enlace en pestaña General).</p>
-          <p style="margin-top:4px;"><strong>Coste total:</strong> 217,77 €</p>
-          <p style="margin-top:4px;"><strong>Personas confirmadas:</strong> <span id="numConfirmados">0</span></p>
-          <p style="margin-top:4px;"><strong>Precio por persona:</strong> <span id="precioPorPersona">0 €</span></p>
-          <p class="note">El precio por persona se recalcula según los confirmados en la pestaña Participantes.</p>
-        </div>
-      </section>
-
-      <!-- CENA -->
-      <section id="cena" class="tab-content">
-        <div class="pill">Cena post‑carrera</div>
-        <div class="section-title">Restaurante</div>
-        <div class="card">
-          <p><strong>Restaurante:</strong> Zona Caravaca (link en pestaña General).</p>
-          <p style="margin-top:4px;"><strong>Menú aproximado:</strong> Entrantes a compartir + principal + bebida.</p>
-          <p style="margin-top:4px;"><strong>Precio por persona:</strong> ~25–30 €</p>
-          <p style="margin-top:4px;"><strong>Hora sugerida:</strong> 21:00 (según llegada a meta).</p>
-        </div>
-
-        <div class="section-title">Asistencia a la cena</div>
-        <div class="card" style="text-align:center;">
-          <strong>Confirmados cena: </strong><span id="contadorCena">0/0</span>
-        </div>
-
-        <table id="tablaCena">
-          <thead>
-            <tr><th>Nombre</th><th>Asiste</th></tr>
-          </thead>
-          <tbody>
-            <tr data-cena="true"><td>Nica</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Cholo</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>César</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Juan</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Juanjo</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Javi</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Carlos</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="false"><td>Ramón</td><td><button class="check-btn" onclick="toggleCena(this)">❌</button></td></tr>
-            <tr data-cena="false"><td>Piti</td><td><button class="check-btn" onclick="toggleCena(this)">❌</button></td></tr>
-          </tbody>
-        </table>
-        <p class="note">Pulsa ✔️ / ❌ para confirmar asistencia a la cena.</p>
-      </section>
-    </div>
-
-    <div class="footer">
-      Versión 42K · Panel interno de grupo.
-    </div>
   </div>
-
-  <script>
-    // Tabs
-    (function () {
-      const buttons = document.querySelectorAll(".tab-button");
-      const contents = document.querySelectorAll(".tab-content");
-      buttons.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const target = btn.getAttribute("data-tab");
-          buttons.forEach((b) => b.classList.remove("active"));
-          contents.forEach((c) => c.classList.remove("active"));
-          btn.classList.add("active");
-          document.getElementById(target).classList.add("active");
-        });
-      });
-    })();
-
+</body>
+</html>
