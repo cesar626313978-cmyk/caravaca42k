@@ -27,6 +27,10 @@ body {
   background-position: center;
   padding: 40px 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* baja el contenido */
+  height: 220px; /* ajustable */
 }
 
 .hero-header h1,
