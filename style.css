@@ -34,13 +34,16 @@ body {
   padding-bottom: 10px; /* espacio justo encima de los botones */
 }
 
-/* Título y subtítulo */
-.hero-header h1 {
+/.hero-header h1 {
   color: #ff7a00; /* naranja fuerte */
   font-weight: 700;
   font-size: 1.8rem;
   margin: 0;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  text-shadow:
+    0 0 3px #fff,
+    0 0 6px #fff,
+    0 0 9px rgba(0,0,0,0.3); /* efecto borde + profundidad */
+}
 }
 
 .hero-header p {
