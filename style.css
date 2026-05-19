@@ -42,7 +42,7 @@ body {
   border-bottom: 1px solid var(--border);
   background: #f9fafb;
   scrollbar-width: none;
-  gap: 0;
+  gap: 0; /* elimina cualquier separación entre botones */
 }
 
 .tab-list::-webkit-scrollbar {
@@ -50,52 +50,54 @@ body {
 }
 
 .tab-button {
-  flex: 1 1 0%;
-  padding: 8px 10px;
-  font-size: .8rem;
+  flex: 1 0 auto;
+  padding: 6px 6px; /* más compactos */
+  font-size: .78rem; /* ligeramente más pequeño */
   text-align: center;
   border: none;
-  background: #e5e7eb;
-  color: #374151;
+  background: transparent;
+  color: var(--muted);
   cursor: pointer;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
-  margin: 0;
-  transition: all 0.2s ease;
-  border-radius: 6px 6px 0 0;
+  margin: 0; /* evita huecos invisibles */
+  border-right: 1px solid #e5e7eb; /* separador fino */
 }
 
-/* COLORES POR PESTAÑA */
+/* Colores por pestaña */
 .tab-button[data-tab="general"] {
-  background: #dbeafe;
+  background: #dbeafe; /* azul claro */
 }
+
 .tab-button[data-tab="participantes"] {
-  background: #dcfce7;
+  background: #dcfce7; /* verde claro */
 }
+
 .tab-button[data-tab="alojamiento"] {
-  background: #fef9c3;
+  background: #fef9c3; /* amarillo suave */
 }
+
 .tab-button[data-tab="cena"] {
   background: #fde68a; /* dorado tipo cerveza */
 }
+
 .tab-button[data-tab="logistica"] {
-  background: #f3e8ff;
+  background: #f3e8ff; /* violeta suave */
 }
 
 .tab-button:hover {
   filter: brightness(0.95);
 }
 
-.tab-button.active {
-  color: #fff;
-  background: var(--primary);
-  border-bottom-color: var(--primary-dark);
-  font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+.tab-button:last-child {
+  border-right: none; /* el último sin borde */
 }
 
-.tab-button:last-child {
-  border-right: none;
+.tab-button.active {
+  color: #fff;
+  border-bottom-color: var(--primary);
+  background: var(--primary); /* pestaña activa azul */
+  font-weight: 600;
 }
 
 /* CONTENIDO */
