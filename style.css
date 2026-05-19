@@ -34,7 +34,7 @@ body {
   padding-bottom: 10px; /* espacio justo encima de los botones */
 }
 
-/.hero-header h1 {
+.hero-header h1 {
   color: #ff7a00; /* naranja fuerte */
   font-weight: 700;
   font-size: 1.8rem;
