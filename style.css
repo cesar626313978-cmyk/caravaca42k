@@ -36,10 +36,10 @@ body {
   height: 220px; /* ajustable */
 }
 
-.hero-header h2,
+.hero-header h1,
 .hero-header p {
-  color: #ffb366; /* gris claro */
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  color: #ffb366; /* naranja */
+  text-shadow: 0 2px 3px rgba(0,0,0,0.4);
 }
 
 /* TABS */
