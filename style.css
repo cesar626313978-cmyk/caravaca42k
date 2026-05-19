@@ -28,7 +28,7 @@ body {
   align-items: flex-end;
   padding: 16px;
   color: #fff;
-  margin-bottom: 9px;
+  margin-bottom: 12px;
 }
 
 .hero-logo {
@@ -101,9 +101,6 @@ header {
   border-bottom:1px solid var(--border);
   background:#f9fafb;
   scrollbar-width:none;
-  gap:0; /* AÑADE ESTO */
-}
-
 }
 
 .tab-list::-webkit-scrollbar {
@@ -111,16 +108,19 @@ header {
 }
 
 .tab-button {
-  flex:1 0 auto;
-  padding:8px 10px;
-  font-size:.8rem;
-  text-align:center;
-  border:none;
-  background:transparent;
-  color:var(--muted);
-  cursor:pointer;
-  border-bottom:2px solid transparent;
-  white-space:nowrap;
+  flex: 1 1 0%;
+  padding: 6px 6px;
+  font-size: .78rem;
+  text-align: center;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  margin: 0;
+  border-right: 1px solid #e5e7eb;
+
 }
 
 .tab-button.active {
