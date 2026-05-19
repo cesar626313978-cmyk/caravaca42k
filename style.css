@@ -25,8 +25,11 @@ body {
   background-image: url('images/portada.jpg');
   background-size: cover;
   background-position: center;
-  padding: 40px 20px;
+
+  /* Ajuste correcto */
+  padding: 0 20px 20px 20px; /* quitamos padding superior */
   text-align: center;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end; /* baja el contenido */
