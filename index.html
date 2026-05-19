@@ -151,7 +151,31 @@
               <td>Roberto</td><td>—</td>
               <td><button class="check-btn" onclick="toggleConfirmado(this)">❌</button></td>
             </tr>
+<script>
+  // Precio total del alojamiento (cámbialo al real)
+  const PRECIO_TOTAL_ALOJAMIENTO = 300;
 
+  function actualizarPrecioAlojamiento() {
+    const checks = document.querySelectorAll('.alojamiento-participante:checked');
+    const numPersonas = checks.length;
+
+    // Si no hay nadie marcado, precio 0
+    const precioPorPersona = numPersonas > 0 
+      ? Math.round(PRECIO_TOTAL_ALOJAMIENTO / numPersonas)
+      : 0;
+
+    document.getElementById('alojamiento-num-personas').textContent = numPersonas;
+    document.getElementById('alojamiento-precio').textContent = precioPorPersona;
+  }
+
+  // Escuchar cambios en los checkboxes
+  document.querySelectorAll('.alojamiento-participante').forEach(chk => {
+    chk.addEventListener('change', actualizarPrecioAlojamiento);
+  });
+
+  // Inicializar al cargar
+  actualizarPrecioAlojamiento();
+</script>
           </tbody>
         </table>
 
