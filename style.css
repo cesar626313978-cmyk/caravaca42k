@@ -25,22 +25,31 @@ body {
   background-image: url('images/portada.jpg');
   background-size: cover;
   background-position: center;
-
-  /* Ajuste correcto */
-  padding: 0 20px 20px 20px; /* quitamos padding superior */
-  text-align: center;
-
+  height: 240px; /* ajusta según tu foto */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* baja el contenido */
-  height: 220px; /* ajustable */
+  justify-content: flex-end; /* coloca el texto abajo */
+  align-items: center;
+  text-align: center;
+  padding-bottom: 10px; /* espacio justo encima de los botones */
 }
 
-.hero-header h1,
-.hero-header p {
-  color: #ff7a00; /* Naranja */
-  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+/* Título y subtítulo */
+.hero-header h1 {
+  color: #ff7a00; /* naranja fuerte */
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
+
+.hero-header p {
+  color: #fff; /* blanco puro para contraste */
+  font-size: 1rem;
+  margin: 4px 0 0 0;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
 
 /* TABS */
 .tab-list {
