@@ -25,93 +25,66 @@ body {
   background-image: url('images/portada.jpg');
   background-size: cover;
   background-position: center;
-  height: 240px; /* ajusta según tu foto */
+  height: 240px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* coloca el texto abajo */
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
-  padding-bottom: 10px; /* espacio justo encima de los botones */
+  padding-bottom: 10px;
 }
 
 .hero-header h1 {
-  color: #ff7a00; /* naranja fuerte */
-  font-weight: 700;
+  color: #ff7a00;
   font-size: 1.9rem;
+  font-weight: 700;
   margin: 0;
-  -webkit-text-stroke: 2px #ffffff; /* borde blanco más grueso */
-  text-shadow: 0 3px 5px rgba(0,0,0,0.5); /* profundidad */
+  -webkit-text-stroke: 2px #fff;
+  text-shadow: 0 3px 5px rgba(0,0,0,0.5);
 }
 
 .hero-header p {
-  color: #ffffff;
+  color: #fff;
   font-size: 1.1rem;
   margin: 4px 0 0 0;
-  -webkit-text-stroke: 1.2px #ffffff; /* borde blanco */
+  -webkit-text-stroke: 1.2px #fff;
   text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-
 }
 
-
-/* TABS */
+/* MENÚ MODERNO Y COLORIDO */
 .tab-list {
   display: flex;
-  overflow-x: auto;
-  border-bottom: 1px solid var(--border);
-  background: #f9fafb;
-  scrollbar-width: none;
-  gap: 0;
-}
-
-.tab-list::-webkit-scrollbar {
-  display: none;
+  justify-content: space-between;
+  border-bottom: 2px solid #1e3a8a;
+  background: linear-gradient(90deg, #93c5fd, #3b82f6);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
 }
 
 .tab-button {
-  flex: 1 0 auto;
-  padding: 6px 6px;
-  font-size: .78rem;
-  text-align: center;
-  border: 1px solid #000; /* ← borde negro */
+  flex: 1;
+  padding: 10px 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
   background: transparent;
-  color: var(--muted);
+  border: none;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
-  margin: 0;
-}
-
-/* Colores por pestaña */
-.tab-button[data-tab="general"] {
-  background: #dbeafe;
-}
-
-.tab-button[data-tab="participantes"] {
-  background: #dcfce7;
-}
-
-.tab-button[data-tab="alojamiento"] {
-  background: #fef9c3;
-}
-
-.tab-button[data-tab="cena"] {
-  background: #fde68a;
-}
-
-.tab-button[data-tab="logistica"] {
-  background: #f3e8ff;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .tab-button:hover {
-  filter: brightness(0.95);
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
 }
 
 .tab-button.active {
+  background: #1e3a8a;
   color: #fff;
-  background: var(--primary);
-  border-color: #000; /* mantiene borde negro también en activo */
-  font-weight: 600;
-
+  box-shadow: inset 0 -3px 0 #facc15;
 }
 
 /* CONTENIDO */
@@ -125,7 +98,7 @@ body {
 }
 
 .section-title {
-  margin-top: 20px;
+  margin-top: 10px;
   font-weight: 700;
   color: var(--primary-dark);
 }
@@ -138,6 +111,10 @@ body {
   margin-top: 10px;
 }
 
+.pastel {
+  background: #fef9c3;
+}
+
 .pill {
   display: inline-block;
   background: var(--primary);
@@ -145,59 +122,70 @@ body {
   padding: 6px 12px;
   border-radius: 20px;
   font-size: .8rem;
-  margin-bottom: 10px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-}
-
-.item-label {
-  font-size: .75rem;
-  color: var(--muted);
-}
-
-.item-value {
-  font-weight: 600;
-}
-
-.check-btn {
-  padding: 4px 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-}
-
-/* TABLAS */
-table {
-  width: 100%;
-  border-collapse: collapse;
   margin-top: 10px;
 }
-
-th, td {
-  padding: 8px;
-  border-bottom: 1px solid var(--border);
-  text-align: left;
+#countdown {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 12px 0;
+  color: #0f172a;
+  font-family: 'Courier New', monospace;
+  text-shadow: 
+    0 0 6px rgba(0,0,0,0.4),
+    0 0 12px rgba(0,0,0,0.3);
+  letter-spacing: 2px;
+}
+/* Tarjetas de logística con colores */
+.card {
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.note {
-  font-size: .75rem;
-  color: var(--muted);
-  margin-top: 6px;
+/* Efecto hover */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-/* MÓVIL */
-@media (max-width: 420px) {
-  .tab-button {
-    font-size: .75rem;
-    padding: 6px 6px;
-  }
+/* Colores por tipo */
+.card:nth-of-type(1) {
+  background: linear-gradient(135deg, #fef9c3, #fde68a); /* salida */
+}
 
-  .grid {
-    grid-template-columns: 1fr;
-  }
+.card:nth-of-type(2) {
+  background: linear-gradient(135deg, #dbeafe, #93c5fd); /* parking */
+}
+
+.card:nth-of-type(3) {
+  background: linear-gradient(135deg, #dcfce7, #86efac); /* alojamiento */
+}
+
+.card:nth-of-type(4) {
+  background: linear-gradient(135deg, #fce7f3, #f9a8d4); /* restaurante */
+}
+
+.card:nth-of-type(5) {
+  background: linear-gradient(135deg, #e0f2fe, #7dd3fc); /* pub */
+}
+
+/* Títulos dentro de las tarjetas */
+.card p strong {
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+/* Enlaces */
+.card a {
+  color: #1e40af;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card a:hover {
+  text-decoration: underline;
+  color: #0f172a;
 }

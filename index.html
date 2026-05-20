@@ -1,604 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>42K Camino de la Cruz 2026 – Grupo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>42K Camino de la Cruz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="app">
 
-    <!-- CABECERA -->
-    <header class="hero-header">
-      <div class="hero-text">
-        <h1>42K Camino de la Cruz 2026</h1>
-        <p>Caminantes de la Terreta</p>
-      </div>
-    </header>
+<div class="app">
 
-    <!-- TABS -->
-    <div class="tabs">
-      <div class="tab-list">
-        <button class="tab-button active" data-tab="general">General</button>
-        <button class="tab-button" data-tab="participantes">Participantes</button>
-        <button class="tab-button" data-tab="alojamiento">Alojamiento</button>
-        <button class="tab-button" data-tab="cena">Cena</button>
-        <button class="tab-button" data-tab="logistica">Logística</button>
-      </div>
-      <!-- GENERAL -->
-      <section id="general" class="tab-content active">
-        <div class="pill">Resumen rápido</div>
+  <!-- CABECERA -->
+  <header class="hero-header">
+    <h1>42K Camino de la Cruz</h1>
+    <p>Caravaca de la Cruz</p>
+  </header>
 
-        <div class="grid">
-          <div>
-            <div class="item-label">Fecha</div>
-            <div class="item-value">Sábado 3 de octubre de 2026</div>
-          </div>
-          <div>
-            <div class="item-label">Hora salida</div>
-            <div class="item-value">10:00 en Mula</div>
-          </div>
-          <div>
-            <div class="item-label">Salida</div>
-            <div class="item-value">Mula</div>
-          </div>
-          <div>
-            <div class="item-label">Meta</div>
-            <div class="item-value">Caravaca de la Cruz</div>
-          </div>
-        </div>
+  <!-- MENÚ -->
+  <div class="tab-list">
+    <button class="tab-button active" data-tab="general">General</button>
+    <button class="tab-button" data-tab="participantes">Participantes</button>
+    <button class="tab-button" data-tab="alojamiento">Alojamiento</button>
+    <button class="tab-button" data-tab="cena">Cena</button>
+    <button class="tab-button" data-tab="logistica">Logística</button>
+  </div>
 
-        <div class="section-title">Cuenta atrás para la 42K</div>
-        <div class="card" style="text-align:center;">
-          <div id="countdown">Cargando…</div>
-          <p class="note">Tiempo restante hasta la salida oficial en Mula.</p>
-        </div>
+  <!-- CONTENIDO -->
 
-        <div class="section-title">Clima previsto</div>
-        <div class="card">
-          <div style="font-weight:600;margin-bottom:4px;">Mula (Salida)</div>
-          <div id="climaMula" style="font-size:.9rem;margin-bottom:10px;">Cargando clima…</div>
+  <!-- GENERAL -->
+  <div class="tab-content active" data-tab="general">
 
-          <div style="font-weight:600;margin-bottom:4px;">Caravaca (Meta)</div>
-          <div id="climaCaravaca" style="font-size:.9rem;">Cargando clima…</div>
+    <!-- Cuenta regresiva -->
+    <div class="card pastel">
+      <h3 class="section-title">Cuenta regresiva</h3>
+      <h3 class="section-title">Falta para la carrera: </h3>
+      <div id="countdown">00d 00h 00m 00s</div>
+    </div>
 
-          <p class="note">Datos en tiempo real desde Open‑Meteo.</p>
-        </div>
+    <!-- Fecha, hora, salida, meta -->
+    <div class="card pastel">
+      <h3 class="section-title">Datos de la carrera</h3>
+      <p><strong>Fecha:</strong> 3 de Octubre de 2026</p>
+      <p><strong>Hora de salida:</strong> 10:00</p>
+      <p><strong>Lugar de salida:</strong> Mula</p>
+      <p><strong>Meta:</strong> Caravaca de la Cruz</p>
+    </div>
 
-        <div class="section-title">Resumen general del grupo</div>
-        <div class="card">
-          <p><strong>Participantes confirmados (carrera):</strong>
-            <span id="resumenCarrera">0/0</span>
-          </p>
-          <p style="margin-top:4px;"><strong>Asistentes confirmados (cena):</strong>
-            <span id="resumenCena">0/0</span>
-          </p>
-          <p style="margin-top:4px;"><strong>Precio alojamiento por persona:</strong>
-            <span id="resumenAlojamiento">0 €</span>
-          </p>
-        </div>
-      </section>
+    <!-- Clima -->
+    <div class="card">
+      <h3 class="section-title">Clima</h3>
+      <p><strong>Salida Mula:</strong> <span id="clima-salida">--</span></p>
+      <p><strong>Meta Caravaca:</strong> <span id="clima-meta">--</span></p>
+    </div>
 
-      <!-- PARTICIPANTES -->
-      <section id="participantes" class="tab-content">
-        <div class="pill">Listado de participantes</div>
+  </div>
 
-        <div class="card" style="text-align:center;">
-          <strong>Confirmados: </strong><span id="contadorConfirmados">0/0</span>
-        </div>
+  <!-- PARTICIPANTES -->
+  <div class="tab-content" data-tab="participantes">
+    <h3 class="section-title">Participantes</h3>
 
-        <table id="tablaParticipantes">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Dorsal</th>
-              <th>Check-in</th>
-            </tr>
-          </thead>
+    <div class="card">
+      <ul>
+        <li>Cholo</li>
+        <li>César</li>
+        <li>Juan</li>
+        <li>Juanjo</li>
+        <li>Javi</li>
+        <li>Carlos</li>
+        <li>Ramón</li>
+        <li>Piti</li>
+        <li>Adrián</li>
+        <li>Roberto</li>
+      </ul>
+    </div>
+  </div>
 
-          <tbody>
-            <tr data-confirmado="true">
-              <td>Nica</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td>
-            </tr>
+  <!-- ALOJAMIENTO -->
+  <div class="tab-content" data-tab="alojamiento">
+    <h3 class="section-title">Casa después de la carrera</h3>
 
-            <tr data-confirmado="true">
-              <td>Cholo</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td>
-            </tr>
+    <div class="card">
+      <p><a href="https://maps.app.goo.gl/QFFDDLhXpNukkF847" target="_blank">Ver alojamientoen Calle Sta. Ana, 7</a></p>
+      <p><strong>Coste total:</strong> 217.77 € a dividir entre los que seamos.</p>
+    </div>
+  </div>
 
-            <tr data-confirmado="true">
-              <td>César</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td>
-            </tr>
+  <!-- CENA -->
+  <div class="tab-content" data-tab="cena">
+    <h3 class="section-title">Cena</h3>
+    <p><a href="https://maps.app.goo.gl/1HeUEP1Xgd2QPQLR8">En restaurante La despensa del Peregrino</a></p>
+    <div class="card">
+<p><strong>Menú aproximado: Entrantes a compartir + principal + bebida.</strong></p>
 
-            <tr data-confirmado="true">
-              <td>Juan</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td>
-            </tr>
+<p><strong>Precio por persona: ~25–30 €</strong></p>
 
-            <tr data-confirmado="true">
-              <td>Juanjo</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td>
-            </tr>
+<p><strong>Hora sugerida: 21:00 (según llegada a meta).</strong></p>
+    </div>
+  </div>
 
-            <tr data-confirmado="true">
-              <td>Javi</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td>
-            </tr>
+ <!-- LOGÍSTICA -->
+<div class="tab-content" data-tab="logistica">
 
-            <tr data-confirmado="true">
-              <td>Carlos</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">✔️</button></td>
-            </tr>
+  <div class="pill">Logística del evento</div>
 
-            <tr data-confirmado="false">
-              <td>Ramón</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">❌</button></td>
-            </tr>
+  <!-- ENLACES PRINCIPALES -->
+  <div class="section-title">Puntos clave</div>
 
-            <tr data-confirmado="false">
-              <td>Piti</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">❌</button></td>
-            </tr>
-            <tr data-confirmado="false">
-              <td>Adrián</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">❌</button></td>
-            </tr>
-            <tr data-confirmado="false">
-              <td>Roberto</td><td>—</td>
-              <td><button class="check-btn" onclick="toggleConfirmado(this)">❌</button></td>
-            </tr>
-<script>
-  // Precio total del alojamiento (cámbialo al real)
-  const PRECIO_TOTAL_ALOJAMIENTO = 217;
+  <div class="card">
+    <p><strong>Salida de la carrera:</strong></p>
+    <p><a href="https://maps.app.goo.gl/4Ro1tVyMSxY6qBQR7" target="_blank">📍 Ver punto de salida en Google Maps</a></p>
+  </div>
 
-  function actualizarPrecioAlojamiento() {
-    const checks = document.querySelectorAll('.alojamiento-participante:checked');
-    const numPersonas = checks.length;
+  <div class="card">
+    <p><strong>Parking en Caravaca:</strong></p>
+    <p><a href="https://maps.app.goo.gl/BiaHLQoQYEimgXFp7" target="_blank">🅿️ Ver parking en Google Maps</a></p>
+  </div>
 
-    // Si no hay nadie marcado, precio 0
-    const precioPorPersona = numPersonas > 0 
-      ? Math.round(PRECIO_TOTAL_ALOJAMIENTO / numPersonas)
-      : 0;
+  <div class="card">
+    <p><strong>Alojamiento:</strong></p>
+    <p><a href="https://maps.app.goo.gl/QFFDDLhXpNukkF847" target="_blank">🏠 Ver alojamiento en Google Maps</a></p>
+  </div>
 
-    document.getElementById('alojamiento-num-personas').textContent = numPersonas;
-    document.getElementById('alojamiento-precio').textContent = precioPorPersona;
-  }
+  <div class="card">
+    <p><strong>Restaurante cena:</strong></p>
+    <p><a href="https://maps.app.goo.gl/1HeUEP1Xgd2QPQLR8" target="_blank">🍽️ Ver restaurante en Google Maps</a></p>
+  </div>
 
-  // Escuchar cambios en los checkboxes
-  document.querySelectorAll('.alojamiento-participante').forEach(chk => {
-    chk.addEventListener('change', actualizarPrecioAlojamiento);
-  });
+  <div class="card">
+    <p><strong>Y si el cuerpo aguanta, copeteo en Pub Blanco y Negro!!:</strong></p>
+    <p><a href="https://maps.app.goo.gl/s8AQkCC2dvT2r6CDA" target="_blank">🍻 Ver pub en Google Maps</a></p>
+  </div>
 
-  // Inicializar al cargar
-  actualizarPrecioAlojamiento();
-</script>
-          </tbody>
-        </table>
-
-        <p class="note">Pulsa ✔️ / ❌ para marcar asistencia a la carrera.</p>
-      </section>
-      <!-- ALOJAMIENTO -->
-      <section id="alojamiento" class="tab-content">
-        <div class="pill">Alojamiento</div>
-
-        <div class="section-title">Casa después de la carrera</div>
-        <div class="card">
-          <p><strong>Ubicación:</strong></p>
-          <p><a href="https://maps.app.goo.gl/QFFDDLhXpNukkF847" target="_blank">🏠 Ver alojamiento en Google Maps</a></p>
-          <p style="margin-top:4px;"><strong>Coste total:</strong> 217,77 €</p>
-          <p style="margin-top:4px;"><strong>Personas confirmadas:</strong> <span id="numConfirmados">0</span></p>
-          <p style="margin-top:4px;"><strong>Precio por persona:</strong> <span id="precioPorPersona">0 €</span></p>
-          <p class="note">El precio por persona se recalcula según los confirmados en la pestaña Participantes.</p>
-        </div>
-<h3 class="section-title">Quién duerme en el alojamiento</h3>
-
-<div class="card">
-  <label><input type="checkbox" class="alojamiento-participante" value="Cholo"> Cholo</label><br>
-  <label><input type="checkbox" class="alojamiento-participante" value="César"> César</label><br>
-  <label><input type="checkbox" class="alojamiento-participante" value="Juan"> Juan</label><br>
-  <label><input type="checkbox" class="alojamiento-participante" value="Juanjo"> Juanjo</label><br>
-  <label><input type="checkbox" class="alojamiento-participante" value="Javi"> Javi</label><br>
-  <label><input type="checkbox" class="alojamiento-participante" value="Carlos"> Carlos</label><br>
-  <label><input type="checkbox" class="alojamiento-participante" value="Ramón"> Ramón</label><br>
-  <label><input type="checkbox" class="alojamiento-participante" value="Piti"> Piti</label><br>
-  <label><input type="checkbox" class="alojamiento-participante" value="Adrián"> Adrián</label><br>
-  <label><input type="checkbox" class="alojamiento-participante" value="Roberto"> Roberto</label>
 </div>
+        <body/>
+     <script src="script.js"></script>
+     
 
-<p class="pill">
-  Duermen en el alojamiento: <span id="alojamiento-num-personas">0</span>
-</p>
-
-<p class="pill">
-  Precio alojamiento: <span id="alojamiento-precio">0</span> €
-</p>
-      </section>
-
-      <!-- CENA -->
-      <section id="cena" class="tab-content">
-        <div class="pill">Cena post‑carrera</div>
-
-        <div class="section-title">Restaurante</div>
-        <div class="card">
-          <p style="margin-top:4px;"><strong>La Despensa del Peregrino:</strong>
-          <p><a href="https://maps.app.goo.gl/1HeUEP1Xgd2QPQLR8" target="_blank">🍽️ Ver restaurante en Google Maps</a></p>
-          <p style="margin-top:4px;"><strong>Menú aproximado:</strong> Entrantes a compartir + principal + bebida.</p>
-          <p style="margin-top:4px;"><strong>Precio por persona:</strong> ~25–30 €</p>
-          <p style="margin-top:4px;"><strong>Hora sugerida:</strong> 21:00 (según llegada a meta).</p>
-        </div>
-
-        <div class="section-title">Asistencia a la cena</div>
-        <div class="card" style="text-align:center;">
-          <strong>Confirmados cena: </strong><span id="contadorCena">0/0</span>
-        </div>
-
-        <table id="tablaCena">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Asiste</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr data-cena="true"><td>Nica</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Cholo</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>César</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Juan</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Juanjo</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Javi</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="true"><td>Carlos</td><td><button class="check-btn" onclick="toggleCena(this)">✔️</button></td></tr>
-            <tr data-cena="false"><td>Ramón</td><td><button class="check-btn" onclick="toggleCena(this)">❌</button></td></tr>
-            <tr data-cena="false"><td>Piti</td><td><button class="check-btn" onclick="toggleCena(this)">❌</button></td></tr>
-            <tr data-cena="false"><td>Adrián</td><td><button class="check-btn" onclick="toggleCena(this)">❌</button></td></tr>
-            <tr data-cena="false"><td>Roberto</td><td><button class="check-btn" onclick="toggleCena(this)">❌</button></td></tr>
-          </tbody>
-        </table>
-
-        <p class="note">Pulsa ✔️ / ❌ para confirmar asistencia a la cena.</p>
-      </section>
-
-      <!-- LOGÍSTICA -->
-      <section id="logistica" class="tab-content">
-
-        <div class="pill">Logística del evento</div>
-
-        <!-- ENLACES PRINCIPALES -->
-        <div class="section-title">Puntos clave</div>
-
-        <div class="card">
-          <p><strong>Salida de la carrera:</strong></p>
-          <p><a href="https://maps.app.goo.gl/4Ro1tVyMSxY6qBQR7" target="_blank">📍 Ver punto de salida en Google Maps</a></p>
-        </div>
-
-        <div class="card">
-          <p><strong>Parking en Caravaca:</strong></p>
-          <p><a href="https://maps.app.goo.gl/BiaHLQoQYEimgXFp7" target="_blank">🅿️ Ver parking en Google Maps</a></p>
-        </div>
-
-        <div class="card">
-          <p><strong>Alojamiento:</strong></p>
-          <p><a href="https://maps.app.goo.gl/QFFDDLhXpNukkF847" target="_blank">🏠 Ver alojamiento en Google Maps</a></p>
-        </div>
-
-        <div class="card">
-          <p><strong>Restaurante cena:</strong></p>
-          <p><a href="https://maps.app.goo.gl/1HeUEP1Xgd2QPQLR8" target="_blank">🍽️ Ver restaurante en Google Maps</a></p>
-        </div>
-        <div class="card">
-          <p><strong>Y si el cuerpo aguanta, copeteo en Pub Blanco y Negro!!:</strong></p>
-          <p><a href="https://maps.app.goo.gl/s8AQkCC2dvT2r6CDA" target="_blank">🍻 Ver pub en Google Maps</a></p>
-        </div>
-            
-
-
-        <!-- LOGÍSTICA AVANZADA -->
-        <div class="section-title">Plan de logística con 3 vehículos</div>
-
-        <div class="card" style="background:#f0f9ff; border-left:4px solid #0ea5e9;">
-          <p><strong>Vehículos implicados:</strong> A, B y C</p>
-
-          <div style="margin-top:10px;">
-            <p><strong>1️⃣ Salida desde Alicante</strong></p>
-            <ul style="margin-left:16px; line-height:1.5;">
-              <li>🚗 <strong>Coche A</strong> → Va a <strong>Mula</strong> con 5 personas.</li>
-              <li>🚗 <strong>Coches B y C</strong> → Van directos a <strong>Caravaca</strong>.</li>
-            </ul>
-          </div>
-
-          <div style="text-align:center; font-size:1.4rem; margin:6px 0;">⬇️</div>
-
-          <div>
-            <p><strong>2️⃣ Llegada a Caravaca (B y C)</strong></p>
-            <ul style="margin-left:16px; line-height:1.5;">
-              <li>🅿️ Aparcan en la zona de parking.</li>
-              <li>⏳ Esperan a que llegue el coche A.</li>
-            </ul>
-          </div>
-
-          <div style="text-align:center; font-size:1.4rem; margin:6px 0;">⬇️</div>
-
-          <div>
-            <p><strong>3️⃣ Llegada del coche A a Mula</strong></p>
-            <ul style="margin-left:16px; line-height:1.5;">
-              <li>🏁 4 personas se quedan en la salida de la carrera.</li>
-              <li>🚗 El conductor sigue hacia Caravaca.</li>
-            </ul>
-          </div>
-
-          <div style="text-align:center; font-size:1.4rem; margin:6px 0;">⬇️</div>
-
-          <div>
-            <p><strong>4️⃣ Recogida en Caravaca</strong></p>
-            <ul style="margin-left:16px; line-height:1.5;">
-              <li>🤝 El coche A recoge a los ocupantes de B y C.</li>
-              <li>🔁 Todos vuelven juntos a Mula en el coche A.</li>
-            </ul>
-          </div>
-
-          <div style="text-align:center; font-size:1.4rem; margin:6px 0;">⬇️</div>
-
-          <div>
-            <p><strong>5️⃣ Preparación para el domingo</strong></p>
-            <ul style="margin-left:16px; line-height:1.5;">
-              <li>🚗 Coche A queda aparcado en Mula.</li>
-              <li>🚗 B y C ya están en Caravaca desde el sábado.</li>
-            </ul>
-          </div>
-
-          <div style="text-align:center; font-size:1.4rem; margin:6px 0;">⬇️</div>
-
-          <div>
-            <p><strong>6️⃣ Domingo – vuelta a Alicante</strong></p>
-            <ul style="margin-left:16px; line-height:1.5;">
-              <li>🚗 Uno de los coches (B o C) vuelve directo a Alicante.</li>
-              <li>🚗 El otro lleva al conductor del coche A a Mula.</li>
-              <li>🚗 El conductor recupera el coche A y vuelve a Alicante.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- DIAGRAMA TIPO LÍNEA DE METRO -->
-        <div class="section-title">Diagrama visual (tipo línea de metro)</div>
-
-        <div class="card" style="background:#eef2ff; border-left:4px solid #6366f1; padding:14px;">
-
-          <p style="font-weight:700; color:#3730a3; font-size:.95rem; margin-bottom:14px;">
-            🚇 Ruta completa de vehículos (A, B y C)
-          </p>
-
-          <div style="font-size:.85rem; line-height:1.8;">
-
-            <div style="display:flex; align-items:center;">
-              <span style="color:#1e3a8a; font-weight:700;">Alicante</span>
-              <span style="margin:0 8px; color:#4f46e5;">──▶</span>
-              <span style="color:#1e3a8a; font-weight:700;">Mula</span>
-              <span style="margin-left:8px; color:#4f46e5;">(Coche A)</span>
-            </div>
-
-            <div style="display:flex; align-items:center; margin-left:20px;">
-              <span style="color:#1e3a8a; font-weight:700;">Alicante</span>
-              <span style="margin:0 8px; color:#4f46e5;">──▶</span>
-              <span style="color:#1e3a8a; font-weight:700;">Caravaca</span>
-              <span style="margin-left:8px; color:#4f46e5;">(Coches B y C)</span>
-            </div>
-
-            <div style="text-align:center; font-size:1.4rem; margin:10px 0; color:#4f46e5;">⬇️</div>
-
-            <div style="display:flex; align-items:center;">
-              <span style="color:#1e3a8a; font-weight:700;">Mula</span>
-              <span style="margin:0 8px; color:#4f46e5;">──▶</span>
-              <span style="color:#1e3a8a; font-weight:700;">Caravaca</span>
-              <span style="margin-left:8px; color:#4f46e5;">(Conductor A)</span>
-            </div>
-
-            <div style="text-align:center; font-size:1.4rem; margin:10px 0; color:#4f46e5;">⬇️</div>
-
-            <div style="display:flex; align-items:center;">
-              <span style="color:#1e3a8a; font-weight:700;">Caravaca</span>
-              <span style="margin:0 8px; color:#4f46e5;">──▶</span>
-              <span style="color:#1e3a8a; font-weight:700;">Mula</span>
-              <span style="margin-left:8px; color:#4f46e5;">(A + B + C)</span>
-            </div>
-
-            <div style="text-align:center; font-size:1.4rem; margin:10px 0; color:#4f46e5;">⬇️</div>
-
-            <div style="display:flex; align-items:center;">
-              <span style="color:#1e3a8a; font-weight:700;">Mula</span>
-              <span style="margin:0 8px; color:#4f46e5;">──▶</span>
-              <span style="color:#1e3a8a; font-weight:700;">Caravaca</span>
-              <span style="margin-left:8px; color:#4f46e5;">(Dormir)</span>
-            </div>
-
-            <div style="text-align:center; font-size:1.4rem; margin:10px 0; color:#4f46e5;">⬇️</div>
-
-            <div style="display:flex; align-items:center;">
-              <span style="color:#1e3a8a; font-weight:700;">Caravaca</span>
-              <span style="margin:0 8px; color:#4f46e5;">──▶</span>
-              <span style="color:#1e3a8a; font-weight:700;">Alicante</span>
-              <span style="margin-left:8px; color:#4f46e5;">(B o C)</span>
-            </div>
-
-            <div style="display:flex; align-items:center; margin-left:20px;">
-              <span style="color:#1e3a8a; font-weight:700;">Caravaca</span>
-              <span style="margin:0 8px; color:#4f46e5;">──▶</span>
-              <span style="color:#1e3a8a; font-weight:700;">Mula</span>
-              <span style="margin-left:8px; color:#4f46e5;">(Conductor A)</span>
-            </div>
-
-            <div style="display:flex; align-items:center; margin-left:40px;">
-              <span style="color:#1e3a8a; font-weight:700;">Mula</span>
-              <span style="margin:0 8px; color:#4f46e5;">──▶</span>
-              <span style="color:#1e3a8a; font-weight:700;">Alicante</span>
-              <span style="margin-left:8px; color:#4f46e5;">(Coche A)</span>
-            </div>
-
-          </div>
-        </div>
-
-      </section>
-      <!-- SCRIPT -->
-      <script>
-        // Tabs
-        (function () {
-          const buttons = document.querySelectorAll(".tab-button");
-          const contents = document.querySelectorAll(".tab-content");
-          buttons.forEach((btn) => {
-            btn.addEventListener("click", () => {
-              const target = btn.getAttribute("data-tab");
-              buttons.forEach((b) => b.classList.remove("active"));
-              contents.forEach((c) => c.classList.remove("active"));
-              btn.classList.add("active");
-              document.getElementById(target).classList.add("active");
-            });
-          });
-        })();
-
-        // Carrera: toggle confirmados
-        function toggleConfirmado(btn) {
-          const fila = btn.closest("tr");
-          const confirmado = fila.getAttribute("data-confirmado") === "true";
-          fila.setAttribute("data-confirmado", confirmado ? "false" : "true");
-          btn.textContent = confirmado ? "❌" : "✔️";
-          actualizarContadorCarrera();
-          actualizarCosteAlojamiento();
-          actualizarResumenGeneral();
-        }
-
-        function actualizarContadorCarrera() {
-          const filas = document.querySelectorAll('#tablaParticipantes tbody tr');
-          const total = filas.length;
-          let confirmados = 0;
-          filas.forEach(fila => {
-            if (fila.getAttribute('data-confirmado') === 'true') confirmados++;
-          });
-          document.getElementById('contadorConfirmados').textContent = `${confirmados}/${total}`;
-        }
-
-        function actualizarCosteAlojamiento() {
-          const costeTotal = 217.77;
-          const filas = document.querySelectorAll('#tablaParticipantes tbody tr');
-          let confirmados = 0;
-          filas.forEach(fila => {
-            if (fila.getAttribute('data-confirmado') === 'true') confirmados++;
-          });
-          const precio = confirmados > 0 ? (costeTotal / confirmados).toFixed(2) : 0;
-          document.getElementById('numConfirmados').textContent = confirmados;
-          document.getElementById('precioPorPersona').textContent = precio + " €";
-        }
-
-        // Cena
-        function toggleCena(btn) {
-          const fila = btn.closest("tr");
-          const asiste = fila.getAttribute("data-cena") === "true";
-          fila.setAttribute("data-cena", asiste ? "false" : "true");
-          btn.textContent = asiste ? "❌" : "✔️";
-          actualizarContadorCena();
-          actualizarResumenGeneral();
-        }
-
-        function actualizarContadorCena() {
-          const filas = document.querySelectorAll('#tablaCena tbody tr');
-          const total = filas.length;
-          let asistentes = 0;
-          filas.forEach(fila => {
-            if (fila.getAttribute('data-cena') === 'true') asistentes++;
-          });
-          document.getElementById('contadorCena').textContent = `${asistentes}/${total}`;
-        }
-
-        // Resumen general
-        function actualizarResumenGeneral() {
-          const filasCarrera = document.querySelectorAll('#tablaParticipantes tbody tr');
-          const totalCarrera = filasCarrera.length;
-          let confirmadosCarrera = 0;
-          filasCarrera.forEach(fila => {
-            if (fila.getAttribute('data-confirmado') === 'true') confirmadosCarrera++;
-          });
-          document.getElementById('resumenCarrera').textContent = `${confirmadosCarrera}/${totalCarrera}`;
-
-          const filasCena = document.querySelectorAll('#tablaCena tbody tr');
-          const totalCena = filasCena.length;
-          let confirmadosCena = 0;
-          filasCena.forEach(fila => {
-            if (fila.getAttribute('data-cena') === 'true') confirmadosCena++;
-          });
-          document.getElementById('resumenCena').textContent = `${confirmadosCena}/${totalCena}`;
-
-          const precio = document.getElementById('precioPorPersona').textContent;
-          document.getElementById('resumenAlojamiento').textContent = precio;
-        }
-
-        // Cuenta atrás
-        function iniciarCuentaAtras() {
-          const objetivo = new Date("2026-10-03T10:00:00").getTime();
-          function actualizar() {
-            const ahora = Date.now();
-            const distancia = objetivo - ahora;
-            if (distancia <= 0) {
-              document.getElementById("countdown").textContent = "¡Es el día de la carrera!";
-              return;
-            }
-            const d = Math.floor(distancia / (1000*60*60*24));
-            const h = Math.floor((distancia % (1000*60*60*24)) / (1000*60*60));
-            const m = Math.floor((distancia % (1000*60*60)) / (1000*60));
-            const s = Math.floor((distancia % (1000*60)) / 1000);
-            document.getElementById("countdown").textContent = `${d}d ${h}h ${m}m ${s}s`;
-          }
-          actualizar();
-          setInterval(actualizar, 1000);
-        }
-
-        // Clima
-        async function obtenerClima(lat, lon) {
-          const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
-          const resp = await fetch(url);
-          const datos = await resp.json();
-          return datos.current_weather;
-        }
-
-        function traducirEstado(codigo) {
-          const estados = {
-            0:"Despejado",1:"Mayormente despejado",2:"Parcialmente nublado",3:"Nublado",
-            45:"Niebla",48:"Niebla con escarcha",51:"Llovizna ligera",53:"Llovizna",
-            55:"Llovizna intensa",61:"Lluvia ligera",63:"Lluvia moderada",65:"Lluvia fuerte",
-            71:"Nieve ligera",73:"Nieve",75:"Nieve intensa",95:"Tormenta",
-            96:"Tormenta con granizo",99:"Tormenta fuerte con granizo"
-          };
-          return estados[codigo] || "Condición desconocida";
-        }
-
-        async function actualizarClima() {
-          const mula = { lat:38.0402, lon:-1.4900 };
-          const caravaca = { lat:38.1056, lon:-1.8635 };
-          try {
-            const climaMula = await obtenerClima(mula.lat, mula.lon);
-            const climaCaravaca = await obtenerClima(caravaca.lat, caravaca.lon);
-            document.getElementById("climaMula").textContent =
-              `${climaMula.temperature}°C · ${traducirEstado(climaMula.weathercode)} · Viento ${climaMula.windspeed} km/h`;
-            document.getElementById("climaCaravaca").textContent =
-              `${climaCaravaca.temperature}°C · ${traducirEstado(climaCaravaca.weathercode)} · Viento ${climaCaravaca.windspeed} km/h`;
-          } catch (e) {
-            document.getElementById("climaMula").textContent = "No se pudo cargar el clima.";
-            document.getElementById("climaCaravaca").textContent = "No se pudo cargar el clima.";
-          }
-        }
-
-        // Init
-        window.addEventListener('DOMContentLoaded', () => {
-          actualizarContadorCarrera();
-          actualizarCosteAlojamiento();
-          actualizarContadorCena();
-          actualizarResumenGeneral();
-          iniciarCuentaAtras();
-          actualizarClima();
-        });
-      </script>
-
-    </div> <!-- cierre .app -->
-</body>
-</html>
