@@ -106,12 +106,14 @@ body {
 }
 
 /* TARJETAS */
+/* TARJETAS */
 .card {
   border-radius: 12px;
   padding: 16px;
   margin: 12px 0;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
 }
 
 .card:hover {
@@ -119,43 +121,27 @@ body {
   box-shadow: 0 6px 14px rgba(0,0,0,0.15);
 }
 
-/* COLORES DE TARJETAS (solo logística) */
-#logistica .card:nth-of-type(1) {
+/* COLORES POR TIPO (compatibles con todos los móviles) */
+#logistica .card.salida {
   background: linear-gradient(135deg, #fef9c3, #fde68a);
 }
 
-#logistica .card:nth-of-type(2) {
+#logistica .card.parking {
   background: linear-gradient(135deg, #dbeafe, #93c5fd);
 }
 
-#logistica .card:nth-of-type(3) {
+#logistica .card.alojamiento {
   background: linear-gradient(135deg, #dcfce7, #86efac);
 }
 
-#logistica .card:nth-of-type(4) {
+#logistica .card.restaurante {
   background: linear-gradient(135deg, #fce7f3, #f9a8d4);
 }
 
-#logistica .card:nth-of-type(5) {
+#logistica .card.pub {
   background: linear-gradient(135deg, #e0f2fe, #7dd3fc);
 }
 
-
-.card p strong {
-  color: #1e3a8a;
-  font-weight: 700;
-}
-
-.card a {
-  color: #1e40af;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.card a:hover {
-  text-decoration: underline;
-  color: #0f172a;
-}
 
 /* CONTADOR DIGITAL */
 #countdown {
@@ -178,45 +164,3 @@ body {
     padding: 10px 0;
     border-radius: 6px;
   }
-}
-
-/* LANDSCAPE */
-@media (max-height: 500px) and (orientation: landscape) {
-  .tab-button {
-    padding: 6px 0;
-    font-size: 0.65rem;
-    flex: 1 1 20%;
-    margin: 2px;
-  }
-
-  .tab-list {
-    padding: 4px;
-    border-radius: 6px;
-  }
-
-  .tab-content {
-    padding: 10px;
-  }
-
-  .card {
-    padding: 10px;
-    margin: 8px 0;
-  }
-
-  .section-title {
-    font-size: 1rem;
-  }
-
-  #countdown {
-    font-size: 1.8rem;
-    padding: 6px 0;
-  }
-
-  .pastel {
-    padding: 10px;
-  }
-
-  body {
-    font-size: 0.9rem;
-  }
-}
