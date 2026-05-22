@@ -10,7 +10,8 @@ const DEFAULT_RUNNERS = [
   "Ramón",
   "Piti",
   "Adrián",
-  "Roberto"
+  "Roberto",
+  "Nica"
 ];
 
 // STATE MANAGEMENT
@@ -207,11 +208,7 @@ function normalizeName(name) {
 }
 
 function getAvatarFilename(name) {
-  let norm = normalizeName(name);
-  if (norm === "carlos") {
-    return "nica";
-  }
-  return norm;
+  return normalizeName(name);
 }
 
 function handleAvatarError(img, filename) {
