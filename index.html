@@ -3,134 +3,469 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>42K Camino de la Cruz</title>
+  <title>42K Camino de la Cruz | Caravaca 2026</title>
+  <meta name="description" content="Dashboard informativo y organizativo para el grupo de corredores del 42K Camino de la Cruz. Cuenta atrás, clima, alojamiento, cena y logística.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <div class="app-container">
+    <!-- CABECERA HERO -->
+    <header class="hero-header">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-badge">Evento Deportivo</span>
+        <h1>42K Camino de la Cruz</h1>
+        <p class="hero-subtitle">
+          <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Mula &rarr; Caravaca de la Cruz
+        </p>
+      </div>
+    </header>
 
-<div class="app">
+    <!-- MENÚ / NAVEGACIÓN -->
+    <nav class="tab-navigation" aria-label="Navegación principal">
+      <div class="tab-list" role="tablist">
+        <button class="tab-button active" data-tab="general" role="tab" aria-selected="true" id="tab-general">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>General</span>
+        </button>
+        <button class="tab-button" data-tab="participantes" role="tab" aria-selected="false" id="tab-participantes">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Participantes</span>
+        </button>
+        <button class="tab-button" data-tab="alojamiento" role="tab" aria-selected="false" id="tab-alojamiento">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Alojamiento</span>
+        </button>
+        <button class="tab-button" data-tab="cena" role="tab" aria-selected="false" id="tab-cena">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <span>Cena</span>
+        </button>
+        <button class="tab-button" data-tab="logistica" role="tab" aria-selected="false" id="tab-logistica">
+          <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+          <span>Logística</span>
+        </button>
+      </div>
+    </nav>
 
-  <!-- CABECERA -->
-  <header class="hero-header">
-    <h1>42K Camino de la Cruz</h1>
-    <p>Caravaca de la Cruz</p>
-  </header>
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
 
-  <!-- MENÚ -->
-  <div class="tab-list">
-    <button class="tab-button active" data-tab="general">General</button>
-    <button class="tab-button" data-tab="participantes">Participantes</button>
-    <button class="tab-button" data-tab="alojamiento">Alojamiento</button>
-    <button class="tab-button" data-tab="cena">Cena</button>
-    <button class="tab-button" data-tab="logistica">Logística</button>
+      <!-- PESTAÑA: GENERAL -->
+      <section class="tab-content active" data-tab="general" role="tabpanel" aria-labelledby="tab-general">
+        
+        <!-- Cuenta regresiva -->
+        <div class="card countdown-card">
+          <h2 class="card-title">Cuenta Atrás para la Carrera</h2>
+          <div class="countdown-wrapper">
+            <div class="countdown-item">
+              <span class="countdown-value" id="countdown-days">00</span>
+              <span class="countdown-label">Días</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+              <span class="countdown-value" id="countdown-hours">00</span>
+              <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+              <span class="countdown-value" id="countdown-minutes">00</span>
+              <span class="countdown-label">Mins</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-item">
+              <span class="countdown-value" id="countdown-seconds">00</span>
+              <span class="countdown-label">Segs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Datos clave carrera -->
+        <div class="card info-race-card">
+          <h2 class="card-title">Datos Esenciales</h2>
+          <div class="grid-2col">
+            <div class="info-block">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </div>
+              <div>
+                <span class="label">Fecha</span>
+                <span class="value">Sábado, 3 de Octubre de 2026</span>
+              </div>
+            </div>
+            <div class="info-block">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div>
+                <span class="label">Hora de Salida</span>
+                <span class="value">10:00 AM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ruta visualizada -->
+          <div class="route-map-visual">
+            <div class="route-node">
+              <div class="node-dot start"></div>
+              <div class="node-details">
+                <span class="node-title">Salida</span>
+                <span class="node-desc">Mula (Km 0)</span>
+              </div>
+            </div>
+            <div class="route-line-progress">
+              <span class="route-badge">42K</span>
+            </div>
+            <div class="route-node">
+              <div class="node-dot end"></div>
+              <div class="node-details">
+                <span class="node-title">Meta</span>
+                <span class="node-desc">Caravaca (Km 42.195)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clima -->
+        <div class="card weather-card">
+          <h2 class="card-title">Previsión del Tiempo (Tiempo Real)</h2>
+          <div class="grid-2col">
+            <div class="weather-subcard" id="weather-mula">
+              <h3>Salida (Mula)</h3>
+              <div class="weather-main">
+                <div class="weather-icon-wrapper" id="weather-icon-salida">
+                  <!-- Weather Icon Placeholder / SVG loaded via JS -->
+                  <div class="skeleton icon-skeleton"></div>
+                </div>
+                <div class="weather-temp-block">
+                  <span class="weather-temp" id="temp-salida">--°C</span>
+                  <span class="weather-desc" id="desc-salida">Cargando...</span>
+                </div>
+              </div>
+              <div class="weather-details-grid">
+                <div class="w-detail">
+                  <span class="w-label">Viento</span>
+                  <span class="w-val" id="wind-salida">-- km/h</span>
+                </div>
+                <div class="w-detail">
+                  <span class="w-label">Humedad</span>
+                  <span class="w-val" id="humidity-salida">--%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="weather-subcard" id="weather-caravaca">
+              <h3>Meta (Caravaca)</h3>
+              <div class="weather-main">
+                <div class="weather-icon-wrapper" id="weather-icon-meta">
+                  <div class="skeleton icon-skeleton"></div>
+                </div>
+                <div class="weather-temp-block">
+                  <span class="weather-temp" id="temp-meta">--°C</span>
+                  <span class="weather-desc" id="desc-meta">Cargando...</span>
+                </div>
+              </div>
+              <div class="weather-details-grid">
+                <div class="w-detail">
+                  <span class="w-label">Viento</span>
+                  <span class="w-val" id="wind-meta">-- km/h</span>
+                </div>
+                <div class="w-detail">
+                  <span class="w-label">Humedad</span>
+                  <span class="w-val" id="humidity-meta">--%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA: PARTICIPANTES -->
+      <section class="tab-content" data-tab="participantes" role="tabpanel" aria-labelledby="tab-participantes">
+        <div class="card participants-card">
+          <div class="card-header-flex">
+            <div>
+              <h2 class="card-title">Corredores del Grupo</h2>
+              <p class="card-subtitle">Confirma tu asistencia para calcular el coste del alojamiento.</p>
+            </div>
+            <div class="badge-status">
+              <span id="confirmed-count">0</span> / <span id="total-count">10</span> Confirmados
+            </div>
+          </div>
+
+          <div class="search-bar-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="search-runner" placeholder="Buscar corredor...">
+          </div>
+
+          <div class="runners-list" id="runners-container">
+            <!-- Cargado dinámicamente con JavaScript para habilitar custom avatars e interactividad -->
+          </div>
+        </div>
+      </section>
+
+      <!-- PESTAÑA: ALOJAMIENTO -->
+      <section class="tab-content" data-tab="alojamiento" role="tabpanel" aria-labelledby="tab-alojamiento">
+        <div class="grid-split">
+          
+          <div class="lodging-left-col">
+            <div class="card lodging-details-card">
+              <h2 class="card-title">Casa de Alojamiento</h2>
+              <div class="badge-pill">Calle Sta. Ana, 7 - Caravaca</div>
+              
+              <p class="lodging-desc">
+                Casa rural reservada para el grupo de corredores. Cuenta con todas las comodidades para descansar y recuperarse tras el maratón de 42 km.
+              </p>
+
+              <div class="lodging-features">
+                <div class="feature-item">
+                  <span class="feature-icon">🏠</span>
+                  <span>Casa completa</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">🛌</span>
+                  <span>Habitaciones compartidas</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">🚶</span>
+                  <span>Cerca de la zona de meta</span>
+                </div>
+              </div>
+
+              <div class="map-preview-card">
+                <div class="map-icon">📍</div>
+                <div class="map-text">
+                  <strong>Ubicación del Alojamiento</strong>
+                  <span>Calle Sta. Ana, 7, Caravaca de la Cruz</span>
+                </div>
+                <a href="https://maps.app.goo.gl/QFFDDLhXpNukkF847" target="_blank" class="btn btn-secondary btn-sm">
+                  Abrir Mapa
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="card lodging-guests-card">
+              <h2 class="card-title">¿Quién se aloja en la casa?</h2>
+              <p class="card-subtitle">Marca los miembros del grupo que dormirán en el alojamiento.</p>
+              <div class="runners-list" id="lodging-guests-container">
+                <!-- Cargado dinámicamente con JavaScript para habilitar custom avatars e interactividad -->
+              </div>
+            </div>
+          </div>
+
+          <div class="card cost-calculator-card">
+            <h2 class="card-title">Cálculo de Costes</h2>
+            
+            <div class="cost-breakdown">
+              <div class="cost-row">
+                <span>Coste Total del Alojamiento</span>
+                <span class="cost-val highlight-sub">217.77 €</span>
+              </div>
+              <div class="cost-row">
+                <span>Huéspedes Confirmados</span>
+                <span class="cost-val" id="calc-confirmed-count">0</span>
+              </div>
+              <div class="divider"></div>
+              <div class="cost-total-row">
+                <div>
+                  <span class="total-label">Coste por Persona</span>
+                  <span class="total-subtext">A dividir de forma equitativa</span>
+                </div>
+                <span class="total-price" id="cost-per-person">0.00 €</span>
+              </div>
+            </div>
+
+            <div class="alert-info-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              <p>Puedes seleccionar quién se hospeda directamente en el listado de huéspedes para recalcular el coste dividido en tiempo real.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PESTAÑA: CENA -->
+      <section class="tab-content" data-tab="cena" role="tabpanel" aria-labelledby="tab-cena">
+        <div class="grid-split">
+          
+          <div class="card restaurant-info-card">
+            <div class="restaurant-header">
+              <div class="restaurant-logo">🍽️</div>
+              <div>
+                <h2 class="card-title">La Despensa del Peregrino</h2>
+                <p class="card-subtitle">Restaurante elegido para la cena de celebración</p>
+              </div>
+            </div>
+
+            <div class="restaurant-meta">
+              <div class="meta-item">
+                <span class="meta-icon">⏰</span>
+                <div>
+                  <span class="meta-lbl">Hora sugerida</span>
+                  <span class="meta-val">21:00 (Segunda llegada)</span>
+                </div>
+              </div>
+              <div class="meta-item">
+                <span class="meta-icon">💰</span>
+                <div>
+                  <span class="meta-lbl">Precio aprox.</span>
+                  <span class="meta-val">~25 - 30 € por persona</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="map-preview-card">
+              <div class="map-icon">📍</div>
+              <div class="map-text">
+                <strong>Ubicación de la Cena</strong>
+                <span>Caravaca de la Cruz</span>
+              </div>
+              <a href="https://maps.app.goo.gl/1HeUEP1Xgd2QPQLR8" target="_blank" class="btn btn-secondary btn-sm">
+                Abrir Mapa
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="card menu-card">
+            <h2 class="card-title">Menú Propuesto</h2>
+            
+            <div class="menu-sections">
+              <div class="menu-section">
+                <h3 class="menu-section-title">Para Compartir (Entrantes)</h3>
+                <ul class="menu-list">
+                  <li>Surtido de croquetas caseras</li>
+                  <li>Tabla de quesos y embutidos locales</li>
+                  <li>Ensalada del peregrino y revuelto crujiente</li>
+                </ul>
+              </div>
+
+              <div class="menu-section">
+                <h3 class="menu-section-title">Plato Principal</h3>
+                <p class="menu-description">A elegir individualmente carne de la zona, pescado fresco del día, o alternativas vegetarianas.</p>
+              </div>
+
+              <div class="menu-section">
+                <h3 class="menu-section-title">Bebidas e Incluidos</h3>
+                <p class="menu-description">Vino de la casa, cerveza, refrescos, agua y postre casero de la casa con café.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PESTAÑA: LOGÍSTICA -->
+      <section class="tab-content" data-tab="logistica" role="tabpanel" aria-labelledby="tab-logistica">
+        <div class="card logistics-container-card">
+          <h2 class="card-title">Plan de Logística y Rutas</h2>
+          <p class="card-subtitle">Acceso directo a las rutas e indicaciones clave para el fin de semana.</p>
+
+          <div class="logistics-timeline">
+            
+            <!-- Item 1: Salida -->
+            <div class="timeline-item">
+              <div class="timeline-badge start-point">🚀</div>
+              <div class="timeline-panel">
+                <div class="timeline-header">
+                  <h3>Punto de Salida de la Carrera</h3>
+                  <span class="timeline-time">Sábado - 10:00 AM</span>
+                </div>
+                <p>Ubicación exacta para el cajón de salida en Mula.</p>
+                <div class="timeline-action">
+                  <a href="https://maps.app.goo.gl/4Ro1tVyMSxY6qBQR7" target="_blank" class="btn btn-primary btn-sm">
+                    Ver Punto en Maps
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2: Parking -->
+            <div class="timeline-item">
+              <div class="timeline-badge parking-point">🅿️</div>
+              <div class="timeline-panel">
+                <div class="timeline-header">
+                  <h3>Parking en Caravaca</h3>
+                  <span class="timeline-time">Recomendado</span>
+                </div>
+                <p>Zona sugerida para estacionar los coches cerca de la zona de meta y el alojamiento.</p>
+                <div class="timeline-action">
+                  <a href="https://maps.app.goo.gl/BiaHLQoQYEimgXFp7" target="_blank" class="btn btn-primary btn-sm">
+                    Ver Parking en Maps
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3: Alojamiento -->
+            <div class="timeline-item">
+              <div class="timeline-badge lodging-point">🏠</div>
+              <div class="timeline-panel">
+                <div class="timeline-header">
+                  <h3>Alojamiento</h3>
+                  <span class="timeline-time">Check-in disponible</span>
+                </div>
+                <p>Casa rural en Calle Sta. Ana, 7 para el descanso post-carrera.</p>
+                <div class="timeline-action">
+                  <a href="https://maps.app.goo.gl/QFFDDLhXpNukkF847" target="_blank" class="btn btn-primary btn-sm">
+                    Cómo llegar al Alojamiento
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 4: Restaurante -->
+            <div class="timeline-item">
+              <div class="timeline-badge food-point">🍽️</div>
+              <div class="timeline-panel">
+                <div class="timeline-header">
+                  <h3>Cena de Grupo</h3>
+                  <span class="timeline-time">Sábado - 21:00 PM</span>
+                </div>
+                <p>Cena en "La Despensa del Peregrino" en Caravaca.</p>
+                <div class="timeline-action">
+                  <a href="https://maps.app.goo.gl/1HeUEP1Xgd2QPQLR8" target="_blank" class="btn btn-primary btn-sm">
+                    Cómo llegar al Restaurante
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 5: Pub -->
+            <div class="timeline-item">
+              <div class="timeline-badge fun-point">🍻</div>
+              <div class="timeline-panel">
+                <div class="timeline-header">
+                  <h3>Celebración y Copas</h3>
+                  <span class="timeline-time">Post-cena</span>
+                </div>
+                <p>Si el cuerpo aguanta la fatiga del maratón, copas y música en el Pub Blanco y Negro.</p>
+                <div class="timeline-action">
+                  <a href="https://maps.app.goo.gl/s8AQkCC2dvT2r6CDA" target="_blank" class="btn btn-primary btn-sm">
+                    Cómo llegar al Pub
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+      <p>&copy; 2026 Carrera 42K Camino de la Cruz - Caravaca de la Cruz</p>
+      <p class="footer-sub">Organización del Grupo de Corredores</p>
+    </footer>
   </div>
 
-  <!-- CONTENIDO -->
-
-  <!-- GENERAL -->
-  <div class="tab-content active" data-tab="general">
-
-    <!-- Cuenta regresiva -->
-    <div class="card pastel">
-      <h3 class="section-title">Cuenta regresiva</h3>
-      <h3 class="section-title">Falta para la carrera: </h3>
-      <div id="countdown">00d 00h 00m 00s</div>
-    </div>
-
-    <!-- Fecha, hora, salida, meta -->
-    <div class="card pastel">
-      <h3 class="section-title">Datos de la carrera</h3>
-      <p><strong>Fecha:</strong> 3 de Octubre de 2026</p>
-      <p><strong>Hora de salida:</strong> 10:00</p>
-      <p><strong>Lugar de salida:</strong> Mula</p>
-      <p><strong>Meta:</strong> Caravaca de la Cruz</p>
-    </div>
-
-    <!-- Clima -->
-    <div class="card">
-      <h3 class="section-title">Clima</h3>
-      <p><strong>Salida Mula:</strong> <span id="clima-salida">--</span></p>
-      <p><strong>Meta Caravaca:</strong> <span id="clima-meta">--</span></p>
-    </div>
-
-  </div>
-
-  <!-- PARTICIPANTES -->
-  <div class="tab-content" data-tab="participantes">
-    <h3 class="section-title">Participantes</h3>
-
-    <div class="card">
-      <ul>
-        <li>Cholo</li>
-        <li>César</li>
-        <li>Juan</li>
-        <li>Juanjo</li>
-        <li>Javi</li>
-        <li>Carlos</li>
-        <li>Ramón</li>
-        <li>Piti</li>
-        <li>Adrián</li>
-        <li>Roberto</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ALOJAMIENTO -->
-  <div class="tab-content" data-tab="alojamiento">
-    <h3 class="section-title">Casa después de la carrera</h3>
-
-    <div class="card">
-      <p><a href="https://maps.app.goo.gl/QFFDDLhXpNukkF847" target="_blank">Ver alojamientoen Calle Sta. Ana, 7</a></p>
-      <p><strong>Coste total:</strong> 217.77 € a dividir entre los que seamos.</p>
-    </div>
-  </div>
-
-  <!-- CENA -->
-  <div class="tab-content" data-tab="cena">
-    <h3 class="section-title">Cena</h3>
-    <p><a href="https://maps.app.goo.gl/1HeUEP1Xgd2QPQLR8">En restaurante La despensa del Peregrino</a></p>
-    <div class="card">
-<p><strong>Menú aproximado: Entrantes a compartir + principal + bebida.</strong></p>
-
-<p><strong>Precio por persona: ~25–30 €</strong></p>
-
-<p><strong>Hora sugerida: 21:00 (según llegada a meta).</strong></p>
-    </div>
-  </div>
-
-<!-- LOGÍSTICA -->
-<div class="tab-content" data-tab="logistica">
-
-  <div class="card salida">
-    <p><strong>Salida de la carrera:</strong></p>
-    <p><a href="https://maps.app.goo.gl/4Ro1tVyMSxY6qBQR7" target="_blank">📍 Ver punto de salida en Google Maps</a></p>
-  </div>
-
-  <div class="card parking">
-    <p><strong>Parking en Caravaca:</strong></p>
-    <p><a href="https://maps.app.goo.gl/BiaHLQoQYEimgXFp7" target="_blank">🅿️ Ver parking en Google Maps</a></p>
-  </div>
-
-  <div class="card alojamiento">
-    <p><strong>Alojamiento:</strong></p>
-    <p><a href="https://maps.app.goo.gl/QFFDDLhXpNukkF847" target="_blank">🏠 Ver alojamiento en Google Maps</a></p>
-  </div>
-
-  <div class="card restaurante">
-    <p><strong>Restaurante cena:</strong></p>
-    <p><a href="https://maps.app.goo.gl/1HeUEP1Xgd2QPQLR8" target="_blank">🍽️ Ver restaurante en Google Maps</a></p>
-  </div>
-
-  <div class="card pub">
-    <p><strong>Y si el cuerpo aguanta, copeteo en Pub Blanco y Negro!!:</strong></p>
-    <p><a href="https://maps.app.goo.gl/s8AQkCC2dvT2r6CDA" target="_blank">🍻 Ver pub en Google Maps</a></p>
-  </div>
-
-</div>
-
-
-<body/>
-<script src="script.js"></script>
-     
-
+  <script src="script.js"></script>
+</body>
+</html>
